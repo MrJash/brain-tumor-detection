@@ -1,0 +1,54 @@
+# Brain Tumor Detection - Virtual Environment
+
+# Ignore virtual environment
+venv/
+env/
+ENV/
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ignore model files (they can be large)
+models/*.pth
+models/*.pt
+models/*.onnx
+
+# Ignore data directory (contains thousands of images)
+data/
+
+# Ignore output files
+outputs/*.png
+outputs/*.jpg
+outputs/*.json
+outputs/*.csv
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+~*
+
+# Keep directory structure
+!models/.gitkeep
+!outputs/.gitkeep
