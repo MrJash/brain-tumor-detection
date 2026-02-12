@@ -25,7 +25,7 @@ This system classifies brain MRI scans into **4 categories**:
 
 ```
 brain-tumor-detection2/
-├── data/
+├── data/                   # ⚠️ NOT INCLUDED (add your own dataset)
 │   ├── train/              # Training images (~5,700 images)
 │   │   ├── glioma/
 │   │   ├── meningioma/
@@ -52,6 +52,29 @@ brain-tumor-detection2/
 ├── run_app.bat             # Quick launch script
 └── README.md
 ```
+
+---
+
+## ⚠️ Important: Dataset Setup
+
+The `data/` directory is **NOT included** in this repository due to its large size (~2GB+). You need to:
+
+1. **Obtain the dataset** from a brain tumor MRI source (e.g., Kaggle: "Brain Tumor MRI Dataset")
+2. **Create the directory structure**:
+   ```
+   data/
+   ├── train/
+   │   ├── glioma/
+   │   ├── meningioma/
+   │   ├── notumor/
+   │   └── pituitary/
+   └── test/
+       ├── glioma/
+       ├── meningioma/
+       ├── notumor/
+       └── pituitary/
+   ```
+3. **Place your images** in the appropriate class folders (JPG/PNG format)
 
 ---
 
@@ -87,7 +110,11 @@ print(f"CUDA available: {torch.cuda.is_available()}")
 print(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'None'}")
 ```
 
-### 3. Train the Model
+### 3. Prepare Your Dataset
+
+Before training, ensure your dataset is organized in the `data/` directory following the structure above. Download the brain tumor MRI dataset and place images in their respective class folders.
+
+### 4. Train the Model
 
 Open and run the training notebook:
 
@@ -109,7 +136,7 @@ The notebook will:
 3. Save best model to `models/tumor_model.pth`
 4. Generate metrics and visualizations in `outputs/`
 
-### 4. Run the Dashboard
+### 5. Run the Dashboard
 
 After training, launch the Streamlit inference app:
 
@@ -191,6 +218,8 @@ Upload MRI → Click Analyze → View Prediction
 
 ### Dataset Format
 
+⚠️ **The dataset is NOT included in this repository.** You must provide your own dataset.
+
 Images must follow this structure:
 ```
 data/
@@ -200,7 +229,7 @@ data/
       image2.jpg
 ```
 
-Class names are **automatically inferred** from folder names.
+Class names are **automatically inferred** from folder names: `glioma`, `meningioma`, `notumor`, `pituitary`
 
 ### Model Artifacts
 
